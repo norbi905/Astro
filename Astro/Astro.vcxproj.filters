@@ -35,10 +35,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="GeneratedFiles\qrc_astro.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\astro.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="astro.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_astro.cpp">
@@ -47,19 +50,16 @@
     <ClCompile Include="GeneratedFiles\Release\moc_astro.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\qrc_astro.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="astro.h">
-      <Filter>Header Files</Filter>
-    </CustomBuild>
     <CustomBuild Include="astro.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
     <CustomBuild Include="astro.qrc">
       <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="src\astro.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
