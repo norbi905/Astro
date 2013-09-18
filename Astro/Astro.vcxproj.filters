@@ -50,7 +50,7 @@
     <ClCompile Include="GeneratedFiles\Release\moc_astro.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
-    <ClCompile Include="Astro_MenuBar.cpp">
+    <ClCompile Include="src\Astro_MenuBar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -69,7 +69,7 @@
     <ClInclude Include="GeneratedFiles\ui_astro.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="Astro_MenuBar.h">
+    <ClInclude Include="src\Astro_MenuBar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
