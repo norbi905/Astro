@@ -16,7 +16,7 @@ void Astro_MainWindow::init()
 	screenWidth = desktop->width();
 	screenHeight = desktop->height();
 
-	this->resize( 800, screenHeight /2 );
+	this->resize( 800, 600 );
 
 	CreateMenu( screenWidth, screenHeight );
 	CreateDockWindows();
@@ -47,18 +47,26 @@ void Astro_MainWindow::display_about()
 
 void Astro_MainWindow::CreateDockWindows()
 {
-	imageCaptureWindow = new QDockWidget( tr("Image Capture"), this );
+	imageCaptureWindow = new QDockWidget( "Image Capture", this );
 	imageCaptureWindow->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
-	//imageCaptureWindow->setMaximumSize( Astro_MainWindow::size() /1.5 );
-	//imageCaptureWindow->setBaseSize( Astro_MainWindow::size());
-
+	imageCaptureWindow->setFeatures( QDockWidget::NoDockWidgetFeatures );
 	
+	imageCaptureWindow->setMinimumSize( 600, 600 );
 	//setCentralWidget( imageCaptureWindow );
-
-	cameraDockWindow = new QDockWidget( tr("Camera Settings"),this );
-	cameraDockWindow->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
-	cameraDockWindow->setMaximumSize( Astro_MainWindow::size() /4 );
-	
 	addDockWidget( Qt::LeftDockWidgetArea, imageCaptureWindow );
+	
+	cameraDockWindow = new QDockWidget( "Camera",this );
+	cameraDockWindow->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
+	cameraDockWindow->setFeatures( QDockWidget::DockWidgetFloatable );
+	cameraDockWindow->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+	//cameraDockWindow->setFixedWidth( 200 );
 	addDockWidget( Qt::RightDockWidgetArea, cameraDockWindow );
+
+	tmp = new QDockWidget( "TEMP", this );
+	tmp->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
+	tmp->setFeatures( QDockWidget::DockWidgetFloatable );
+	tmp->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+	//tmp->setFixedWidth( 200 );
+	addDockWidget( Qt::RightDockWidgetArea, tmp );
+
 }

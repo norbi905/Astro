@@ -26,6 +26,7 @@ public:
 private:
 	QDockWidget		*cameraDockWindow;
 	QDockWidget		*imageCaptureWindow;
+	QDockWidget		*tmp;
 	QDesktopWidget	*desktop;
 
 	QAction			*quit;
