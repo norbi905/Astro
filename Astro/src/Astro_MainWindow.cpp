@@ -24,10 +24,12 @@ void Astro_MainWindow::init()
 
 void Astro_MainWindow::CreateMenu( int width, int height )
 {
+	openFile = new QAction( "&Open Image...", this );
 	quit = new QAction( "&Quit", this );
 	about = new QAction( "&About", this );
 
 	file = menuBar()->addMenu( "&File" );
+	file->addAction( openFile );
 	file->addAction( quit );
 	
 	help = menuBar()->addMenu( "&Help" );
@@ -36,18 +38,12 @@ void Astro_MainWindow::CreateMenu( int width, int height )
 
 	connect( quit, SIGNAL(triggered()), qApp, SLOT(quit()));
 	connect( about, SIGNAL(triggered()), this, SLOT(display_about()));
-}
-
-void Astro_MainWindow::display_about()
-{
-	QMessageBox	msgBox;
-	msgBox.setText( "Version x.x" );
-	msgBox.exec();
+	connect( openFile, SIGNAL(triggered()), this, SLOT(open_file()));
 }
 
 void Astro_MainWindow::CreateDockWindows()
 {
-	imageCaptureWindow = new QDockWidget( "Image Capture", this );
+	imageCaptureWindow = new QDockWidget( "Image Viewer", this );
 	imageCaptureWindow->setAllowedAreas( Qt::LeftDockWidgetArea | Qt::RightDockWidgetArea );
 	imageCaptureWindow->setFeatures( QDockWidget::NoDockWidgetFeatures );
 	
@@ -69,4 +65,11 @@ void Astro_MainWindow::CreateDockWindows()
 	//tmp->setFixedWidth( 200 );
 	addDockWidget( Qt::RightDockWidgetArea, tmp );
 
+}
+
+void Astro_MainWindow::display_about()
+{
+	QMessageBox	msgBox;
+	msgBox.setText( "Version x.x" );
+	msgBox.exec();
 }

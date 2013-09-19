@@ -29,11 +29,14 @@ private:
 	QDockWidget		*tmp;
 	QDesktopWidget	*desktop;
 
+	QAction			*openFile;
 	QAction			*quit;
 	QAction			*about;
 
 	QMenu			*file;
 	QMenu			*help;
+
+	QLabel			*imageLabel;
 
 	int				screenWidth, screenHeight;
 
