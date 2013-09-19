@@ -9,6 +9,7 @@
 #include <qmenu.h>
 #include <qmenubar.h>
 #include <qmessagebox.h>
+#include <QtWidgets\qtextedit.h>
 #include <QtWidgets\qwidget.h>
 #include <QtWidgets\qdockwidget.h>
 #include <QtWidgets\qdesktopwidget.h>
@@ -21,27 +22,13 @@ public:
 	// constructor
 	Astro_MainWindow();
 
-	void init();
-
 private:
-	QDockWidget		*cameraDockWindow;
-	QDockWidget		*imageCaptureWindow;
-	QDockWidget		*tmp;
-	QDesktopWidget	*desktop;
-
-	QAction			*openFile;
+	
 	QAction			*quit;
 	QAction			*about;
 
 	QMenu			*file;
 	QMenu			*help;
-
-	QLabel			*imageLabel;
-
-	int				screenWidth, screenHeight;
-
-	void	CreateMenu( int width, int height );
-	void	CreateDockWindows();
 
 private slots:
 	void display_about();
