@@ -34,6 +34,9 @@ private:
 	Astro_MdiChild		*activeMdiChild();
 	QMdiSubWindow		*findMdiChild( const QString &fileName );
 
+	bool	cameraWindowVisible;
+	bool	liveViewWindowVisible;
+
 	void paintEvent( QPaintEvent *paintEvent );
 	
 };
