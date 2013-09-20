@@ -11,23 +11,6 @@ Astro_MainWindow::Astro_MainWindow()
 
 	mdi_area = new Astro_MdiArea( this );
 	setCentralWidget( mdi_area );
-	
-	/*
-	//QImage bg_image( tr("bg_image.jpg") );
-	QPixmap bg( "bg_image.jpg" );
-	//bg_image.scaled( 100,100 );
-	QBrush	bg_image( Qt::TexturePattern );
-	bg_image.setStyle( Qt::TexturePattern);
-	bg_image.setTexture( bg );
-	
-	// create MDI area
-	mdi_area = new QMdiArea;
-	mdi_area->setBackground( bg_image );
-	mdi_area->setHorizontalScrollBarPolicy( Qt::ScrollBarAsNeeded );
-	mdi_area->setVerticalScrollBarPolicy( Qt::ScrollBarAsNeeded );
-	setCentralWidget( mdi_area );
-	connect( mdi_area, SIGNAL( subWindowActivated( QMdiSubWindow* )), this, SLOT( update_menus()));
-	*/
 
 	create_actions();
 	create_menus();
@@ -39,14 +22,18 @@ void Astro_MainWindow::update_menus()
 {
 }
 
+void Astro_MainWindow::display_cameraWindow()
+{
+	mdi_area->cameraWindow();
+}
+
 void Astro_MainWindow::display_about()
 {
-	QMessageBox::about( this, "About", "Version x.x" );
+	QMessageBox::about( this, "About", VERSION );
 }
 
 void Astro_MainWindow::shutdown()
 {
-
 }
 
 void Astro_MainWindow::create_actions()
@@ -58,6 +45,10 @@ void Astro_MainWindow::create_actions()
 	quit = new QAction( "Quit", this );
 	quit->setStatusTip( "Quit application" );
 	connect( quit, SIGNAL( triggered()), this, SLOT( shutdown()));
+
+	cameraWindow = new QAction( "Camera", this );
+	cameraWindow->setStatusTip( "Camera" );
+	connect( cameraWindow, SIGNAL(triggered()), this, SLOT( display_cameraWindow()));
 }
 
 void Astro_MainWindow::create_menus()
@@ -82,6 +73,8 @@ void Astro_MainWindow::create_toolbars()
 {
 	main_toolbar = addToolBar( "Quit" );
 	main_toolbar->addAction( quit );
+	main_toolbar = addToolBar( "Camera" );
+	main_toolbar->addAction( cameraWindow );
 }
 
 

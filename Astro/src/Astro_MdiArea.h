@@ -11,7 +11,7 @@
 #include <qmdiarea.h>
 #include <qpainter.h>
 
-//#include "Astro_MainWindow.h"
+#include "Astro_MdiChild.h"
 
 class Astro_MainWindow;
 
@@ -25,10 +25,17 @@ public:
 
 	Astro_MainWindow	*mainWindow;
 
-	QBrush		*brush;
+	QBrush				*brush;
+	
+	void	cameraWindow();
+	void    liveViewWindow();
 
 private:
+	Astro_MdiChild		*activeMdiChild();
+	QMdiSubWindow		*findMdiChild( const QString &fileName );
+
 	void paintEvent( QPaintEvent *paintEvent );
+	
 };
 
 #endif // _ASTRO__MDIAREA__H

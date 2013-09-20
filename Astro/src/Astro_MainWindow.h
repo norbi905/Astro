@@ -6,6 +6,8 @@
 #ifndef _ASTRO_MAINWINDOW__H
 #define _ASTRO_MAINWINDOW__H
 
+#define	VERSION "Version 0.1"
+
 #include <qmainwindow.h>
 #include <qapplication.h>
 #include <qmenu.h>
@@ -31,8 +33,6 @@ public:
 	Astro_MainWindow();
 
 private:
-	//QMdiArea		*mdi_area;
-	//QMdiSubWindow	*find_mdi_child( const QString &fileName );
 	Astro_MdiArea	*mdi_area;
 
 	QMenu			*file_menu;
@@ -42,6 +42,7 @@ private:
 	QToolBar		*main_toolbar;
 
 	QAction			*quit;
+	QAction			*cameraWindow;
 	QAction			*about;
 	
 	void			create_actions();
@@ -51,6 +52,7 @@ private:
 
 private slots:
 	void display_about();
+	void display_cameraWindow();
 	void shutdown();
 	void update_menus();
 };

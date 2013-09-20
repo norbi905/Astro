@@ -2,7 +2,6 @@
 	main.cpp
 	*/
 
-//#include <QtWidgets/QApplication>
 #include "Astro_MainWindow.h"
 
 int main(int argc, char *argv[])

@@ -18,6 +18,13 @@ Astro_MdiArea::Astro_MdiArea( Astro_MainWindow	*m_Window )
 	
 }
 
+void Astro_MdiArea::cameraWindow()
+{
+	Astro_MdiChild *child = new Astro_MdiChild( "Camera" );
+	this->addSubWindow( child );
+	child->show();
+}
+
 void Astro_MdiArea::paintEvent( QPaintEvent *paintEvent )
 {
 	QMdiArea::paintEvent( paintEvent );
@@ -29,6 +36,5 @@ void Astro_MdiArea::paintEvent( QPaintEvent *paintEvent )
 	painter.setFont( font );
 	painter.setPen( pen );
 
-	
 	painter.drawText( mainWindow->width() - 250, mainWindow->height() - 80, "ASTRO" );
 }
