@@ -50,6 +50,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_Astro_MainWindow.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="src\Astro_MdiArea.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_Astro_MdiArea.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_Astro_MdiArea.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="astro.ui">
@@ -59,6 +68,9 @@
       <Filter>Resource Files</Filter>
     </CustomBuild>
     <CustomBuild Include="src\Astro_MainWindow.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="src\Astro_MdiArea.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

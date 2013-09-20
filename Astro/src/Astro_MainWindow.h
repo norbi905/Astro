@@ -1,6 +1,8 @@
 /*	Astro_MainWIndow.h
 */
 
+#pragma once
+
 #ifndef _ASTRO_MAINWINDOW__H
 #define _ASTRO_MAINWINDOW__H
 
@@ -8,11 +10,17 @@
 #include <qapplication.h>
 #include <qmenu.h>
 #include <qmenubar.h>
+#include <qtoolbar.h>
+#include <qbrush.h>
+#include <qimage.h>
 #include <qmessagebox.h>
-#include <QtWidgets\qtextedit.h>
-#include <QtWidgets\qwidget.h>
-#include <QtWidgets\qdockwidget.h>
-#include <QtWidgets\qdesktopwidget.h>
+#include <qmdisubwindow.h>
+#include <qstatusbar.h>
+#include <QtWidgets\qtoolbar.h>
+
+#include "Astro_MdiArea.h"
+
+
 
 class Astro_MainWindow : public QMainWindow
 {
@@ -23,15 +31,28 @@ public:
 	Astro_MainWindow();
 
 private:
-	
+	//QMdiArea		*mdi_area;
+	//QMdiSubWindow	*find_mdi_child( const QString &fileName );
+	Astro_MdiArea	*mdi_area;
+
+	QMenu			*file_menu;
+	QMenu			*help_menu;
+	QMenu			*window_menu;
+
+	QToolBar		*main_toolbar;
+
 	QAction			*quit;
 	QAction			*about;
-
-	QMenu			*file;
-	QMenu			*help;
+	
+	void			create_actions();
+	void			create_menus();
+	void			create_toolbars();
+	void			create_statusbar();
 
 private slots:
 	void display_about();
+	void shutdown();
+	void update_menus();
 };
 
 #endif //_ASTRO_MAINWINDOW__H
